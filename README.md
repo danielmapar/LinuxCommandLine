@@ -124,15 +124,19 @@ ln -s .. c = Create a soft link C for the parent directory you are currently loc
 ## LS Options
 
 ```
+ls = List files by alphabetic order
+
 ls -i = This will list the index node number of each file
 
-ls -a = This will show all the files in your current directory, including hidden files
+ls -a = This will show all the files (-a == all files) in your current directory, including hidden files
 
 ls -l = Long listing of all files in the directory and some important information.
 
 ls -t = Sort files by modification date
 
-ls -r = List the files in reverse fashion
+ls -r = List the files in reverse fashion (in this case reverse based on alphabetic order)
+
+ls -rt OR ls -r -t = List the file in reverse fashion (in this case reverse based on modification date)
 
 ls -li = Long listing + show inode ids
 
@@ -141,7 +145,23 @@ ls -lia = Long listing + show inode ids + hidden files
 ls -R = Show current directory content plus any children/sub directory content as well
 
 ls -Ra = Show current directory content plus any children/sub directory content as well + including hidden files
-
-
-
 ```
+
+## Touch Command
+
+- Touch is used to create empty files
+
+  ```
+  touch file_name = Create a file called file_name
+  touch file_name1 file_name2 file_name3 = Creates 3 files
+  ```
+
+- Touch is also used to update a current files timestamp (modification dade)
+
+  ```
+  touch newFile
+  echo "test" > newFile
+  touch newFile = this will update the file timestamp
+  ```
+
+  ![Screenshot](Using%20Touch%20to%20Update%20Timestamp.png)
