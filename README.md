@@ -147,7 +147,7 @@ ls -R = Show current directory content plus any children/sub directory content a
 ls -Ra = Show current directory content plus any children/sub directory content as well + including hidden files
 ```
 
-## Touch Command
+## Touch Command (Create a file)
 
 - Touch is used to create empty files
 
@@ -161,7 +161,25 @@ ls -Ra = Show current directory content plus any children/sub directory content 
   ```
   touch newFile
   echo "test" > newFile
-  touch newFile = this will update the file timestamp
+  touch newFile = this will update the file timestamp and keep the content
   ```
 
-  ![Screenshot](Using%20Touch%20to%20Update%20Timestamp.png)
+![Screenshot](Using%20Touch%20to%20Update%20Timestamp.png)
+
+## MKDIR (Make directory) and RMDIR (Remove directory) Commands
+
+- If you want to create a directory, then you use ```mkdir``` command as follow:
+
+  ```
+  mkdir directory_name
+  mkdir directory_name1 directory_name2 directory_name3
+  ```
+
+- To remove **empty** directories you can use ```rmdir``` command as follows:
+
+  ```
+  mkdir empty_dir
+  rmdir empty_dir
+  ```
+
+  - In case you do ```rmdir``` in one directory that has files and another that is empty, it will only delete the empty one.
