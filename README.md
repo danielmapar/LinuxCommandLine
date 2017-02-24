@@ -2,15 +2,13 @@
 
 ## Basic Commands
 
-```
-date = current date
-cal = current months calendar
-cal 1999 = calendar for 1999
-cal -3 = calendar (last month, current and next month)
-cal -y = all year calendar
-clear = clear console text
-exit = exits de terminal
-```
+- ```date```: current date
+- ```cal```: current months calendar
+- ```cal 1999```: calendar for 1999
+- ```cal -3```: calendar (last month, current and next month)
+- ```cal -y```: all year calendar
+- ```clear```: clear console text
+- ```exit```: exits de terminal
 
 ## Navigate Directories
 
@@ -18,52 +16,50 @@ exit = exits de terminal
 
 ![Screenshot](./Linux%20File%20System.png)
 
-- **bin** = binary (commands and utilities that all users can run)
-- **sbin** = this directory contains programs that performs vital system tasks (network management, disk partitioning). Only the superuser has access to these programs.
-- **home** = each user is given a directory under the home directory. A user can store anything in his home directory
-- **opt** = optional (additional software)
-- **tmp** = temporary files, files created by various programs (**Generally cleared on reboot**)
-- **var** = variable data, data that frequently changes over time.
+- **bin**: binary (commands and utilities that all users can run)
+- **sbin**: this directory contains programs that performs vital system tasks (network management, disk partitioning). Only the superuser has access to these programs.
+- **home**: each user is given a directory under the home directory. A user can store anything in his home directory
+- **opt**: optional (additional software)
+- **tmp**: temporary files, files created by various programs (**Generally cleared on reboot**)
+- **var**: variable data, data that frequently changes over time.
   - Log files
   - Data bases
   - User mail
   - Spools -> temporary storage location
     - /var/spool is traditionally used for machine-local data being spooled to or from UNIX subsystems. For example, print jobs are spooled here for delivery to the lineprinter daemon, out-bound mail is spooled for delivery to remote systems, and UUCP files are spooled for transmission to UUCP neighbors. In-bound mail and news are spooled here for delivery to users, and at and cron jobs are spooled for delayed execution by the cron daemon.
-  home = the directory with the users and user data
+
 
 ![Screenshot](./Linux%20Relative%20and%20Absolute%20paths.png)
 
 
 ### Commands
 
-```
-pwd = print work directory
+- ```pwd```: print working directory
 
-ls = list directory
+- ```ls```: list directory
 
-cd = change directory
+- ```cd```: change directory
 
-cd / = take you to the root directory
+- ```cd /```: take you to the root directory
 
-cd ~ = take you to the user home directory
+- ```cd ~```: take you to the user home directory
 
-cd ./another_folder = navigate from current directory to another_folder
+- ```cd ./another_folder```: navigate from current directory to another_folder
 
-cd .. = navigate from current directory to parent directory
+- ```cd ..```: navigate from current directory to parent directory
 
-cd - = go back to the previous working directory
-  $ cd / = going to the root directory
-  $ cd ~/ = going to the home directory
-  $ cd - = going back to the root directory
+- ```cd -```: go back to the previous working directory
+  - ```cd /```: going to the root directory
+  - ```cd ~/```: going to the home directory
+  - ```cd -```: going back to the root directory
 
-ls / = display your root directory
+- ```ls /```: display your root directory
 
-ls ~ = display your home directory
+- ```ls ~```: display your home directory
 
-ls .. = display the content of my parent directory
+- ```ls ..```: display the content of my parent directory
 
-[DOES NOT WORK] ls - = should display you the content of your previous working directory
-```
+- **[DOES NOT WORK]** ```ls -```: should display you the content of your previous working directory
 
 ![Screenshot](./LS%20-L%20OUTPUT.png)
 
@@ -104,65 +100,62 @@ ls .. = display the content of my parent directory
 - If I change a hard link file content, it will reflect on the other files (the original and other hard links)
 - In case I delete the original file, the hard link file will still work
 - **Be careful**: You should not create hard links for directories. Normally they are not even allowed because they break the file system structure.
+
 ![Screenshot](./Linux%20Hard%20Links.png)
 
 ### Commands
 
-```
-ls -i = show inode of files
+- ```ls -i```: show inode id of files
 
-ls -l = show files information (size in bytes, permission, etc.)
+- ```ls -l```: show files information (size in bytes, permission, etc.)
 
-ln = link
+- ```ln```: link
 
-ln file_name hard_link1 = Create a hard link for a file (same inode)
+- ```ln file_name hard_link1```: Create a hard link for a file (same inode)
 
-ln -s file_name soft_link1 = Create a soft link for a file
+- ```ln -s file_name soft_link1```: Create a soft link for a file
 
-ln -s .. c = Create a soft link C for the parent directory you are currently located in
-```
+- ```ln -s .. c```: Create a soft link C for the parent directory you are currently located in
+
 ## LS Options
 
-```
-ls = List files by alphabetic order
+- ```ls```: List files by alphabetic order
 
-ls -i = This will list the index node number of each file
+- ```ls -i```: This will list the index node number of each file
 
-ls -a = This will show all the files (-a == all files) in your current directory, including hidden files
+- ```ls -a```: This will show all the files (-a == all files) in your current directory, including hidden files
 
-ls -l = Long listing of all files in the directory and some important information.
+- ```ls -l```: Long listing of all files in the directory and some important information.
 
-ls -t = Sort files by modification date
+- ```ls -t```: Sort files by modification date
 
-ls -r = List the files in reverse fashion (in this case reverse based on alphabetic order)
+- ```ls -r```: List the files in reverse fashion (in this case reverse based on alphabetic order)
 
-ls -rt OR ls -r -t = List the file in reverse fashion (in this case reverse based on modification date)
+- ```ls -rt OR ls -r -t```: List the file in reverse fashion (in this case reverse based on modification date)
 
-ls -li = Long listing + show inode ids
+- ```ls -li```: Long listing + show inode ids
 
-ls -lia = Long listing + show inode ids + hidden files
+- ```ls -lia```: Long listing + show inode ids + hidden files
 
-ls -R = Show current directory content plus any children/sub directory content as well
+- ```ls -R```: Show current directory content plus any children/sub directory content as well
 
-ls -Ra = Show current directory content plus any children/sub directory content as well + including hidden files
-```
+- ```ls -Ra```: Show current directory content plus any children/sub directory content as well + including hidden files
+
 
 ## Touch Command (Create a file)
 
 - Touch is used to create empty files
 
-  ```
-  touch file_name = Create a file called file_name
-  touch file_name1 file_name2 file_name3 = Creates 3 files
-  ```
+  - ```touch file_name```: Create a file called file_name
+  - ```touch file_name1 file_name2 file_name3```: Creates 3 files
+
 
 - Touch is also used to update a current files timestamp (modification dade)
 
-  ```
-  touch newFile
-  echo "test" > newFile
-  touch newFile = this will update the file timestamp and keep the content
-  ```
+  - ```touch newFile```
+  - ```echo "test" > newFile```
+  - ```touch newFile```: this will update the file timestamp and keep the content
+
 
 ![Screenshot](Using%20Touch%20to%20Update%20Timestamp.png)
 
@@ -183,3 +176,32 @@ ls -Ra = Show current directory content plus any children/sub directory content 
   ```
 
   - In case you do ```rmdir``` in one directory that has files and another that is empty, it will only delete the empty one.
+
+## RM (Remove) Command
+
+  - To delete non-empty-directory files, or just normal files you just do:
+    ```
+    touch fileToDelete
+    rm fileToDelete
+    mkdir folder
+    cd folder
+    touch file
+    cd ..
+    ```
+    - ```rm -R folder``` or ```rm -r folder```
+
+    - In case of non-empty-directory you need to run ```rm``` with the recursive flag ```-R```. Otherwise it will fail
+    - Also, the ```-R``` flag can be lowercase since it is not case sensitive for ```rm``` (although it is case sensitive for ```ls```)
+
+
+  - ```rm``` options:
+
+    - ```rm -i```: Prompt you before removing any existing file. the ```-i``` means interactive mode
+
+    - ```rm -f```: Never prompt you before removing a file. And will not display a warning if the file you are trying to delete does not exist, meaning that it will ignore non existent files. -f means force
+
+    - ```rm -v```: Verbose mode. It will print the name of each file before removing it.
+
+    - ```rm -R``` or ```rm -r```: Recursively delete files. If the file is a directory, remove the entire directory and all its contents, including subdirectories.
+
+## CP (Copy) Command
