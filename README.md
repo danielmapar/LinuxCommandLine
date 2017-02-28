@@ -53,6 +53,9 @@
   - ```cd ~/```: going to the home directory
   - ```cd -```: going back to the root directory
 
+
+- ```cd "my work"``` or ```cd 'my work'``` or ```cd my\ work```: going to a folder with space
+
 - ```ls /```: display your root directory
 
 - ```ls ~```: display your home directory
@@ -148,6 +151,8 @@
 
   - ```touch file_name```: Create a file called file_name
   - ```touch file_name1 file_name2 file_name3```: Creates 3 files
+  - ```touch 'my file'``` or ```touch "my file"``` or ```touch my\ \ file```: create a file with a name containing spaces
+    - ```\``` is a scape sequence
 
 
 - Touch is also used to update a current files timestamp (modification dade)
@@ -177,6 +182,9 @@
 
   - In case you do ```rmdir``` in one directory that has files and another that is empty, it will only delete the empty one.
 
+
+- To create a directory with a name containing spaces, you can do ```mkdir 'my directory'``` or ```mkdir "my directory"```
+
 ## RM (Remove) Command
 
   - To delete non-empty-directory files, or just normal files you just do:
@@ -205,3 +213,133 @@
     - ```rm -R``` or ```rm -r```: Recursively delete files. If the file is a directory, remove the entire directory and all its contents, including subdirectories.
 
 ## CP (Copy) Command
+
+- The ```cp``` command copies files or directories. It can be used in two different ways:
+  - Copy a file: ```cp file file2```
+  - Make a copy of a directory: ```cp -R dir dir2```: ```dir2``` does not need to exist
+    - This will make a copy of dir1 named dir2 (Assuming that dir2 didn't exist)
+
+  -  In case you copy many files using the following syntax:
+    - ```cp file1 file2 file3 dir```: ```dir``` must exist in this case.
+    - Same case for directories: ```cp -R dir1 dir2 dir3```
+
+
+- ```cp``` options:
+
+  - ```cp -i```: Before overwriting an existing file, prompt the user for confirmation. **cp will silently overwrite files by default.**
+  - ```cp -v```: Verbose mode (print the name of each file that was copied).
+  - ```cp -R```: Recursively copy directories and their content. Just like the ```rm``` command, this option must be specified when copying a directory.
+  - ```cp -r```: Same as cp -R
+
+
+## MV (Move) Command
+
+- The ```mv``` command can be used in two different ways.
+  - Renaming files
+
+    - ```mv file1 file2```: This will rename file1 to file2
+    - ```mv dir1 dir2```: If your file is a directory, this will rename the directory
+    - **You do not need to use the -R option with ```mv```**
+
+  - Moving files
+
+    - ```mv file1 file2 dir1```: This will move file1 and file2 to dir1. However, dir1 must exist
+    - ```mv dir1 dir2 dir3```: This will move dir1 and dir2 to dir3. Again, dir3 must exist
+
+
+- ```mv``` options:
+
+  - ```mv -i```: Before overwriting an existing file, prompt the user for confirmation. If the option is not specified ```mv``` **will silently overwrite the file**
+
+  - ```mv -v```: Verbose mode (print the name of each file that was moved or renamed)
+
+## FILE (File) Command
+
+  - Filenames are case sensitive in just like the commands are.
+
+  - Linux has no concept of  `file extension` like Windows. You can have files without any extension.
+    - It checks the file content to identify what kind is it.
+
+
+  - The command ```file filename``` will give us information about the file type.
+
+  - ```file LS -L OUTPUT.png```: LS -L OUTPUT.png: PNG image data, 1968 x 488, 8-bit/color RGBA, non-interlaced
+
+## Command Line History
+
+  - ```history```: Show all the commands executed in the cmd
+  - ```history 10```: Show last 10 commands
+  - ```history -c```: Clear history
+    - Your history is stored at ```~/.bash_history```
+  - ```!number```: Runs a command from history
+
+## Shortcuts
+
+  - ```Control+a```: Start of the line
+  - ```Control+e```: End of the line
+  - ```Control+d```: Remove character from left to right
+  - ```Control+l```: Clear
+
+## View text files (less, cat, tac, head, tail) Commands
+
+  - ```less file1```: View the content of the file ```file1```
+    - Press ```q``` to quit
+
+  - ```cat file1 file2```: View the content of the file ```file1```concatenated with ```file2```
+    - ```cat``` lets you see two files output concatenated
+
+  - ```tac file```: Shows the content of file, but reversed
+  - ```head -n 20 file```: Show first 20 lines of file
+  - ```tail -n 20 file```: Show last 20 lines of file
+
+
+## WC (word count) Command
+
+  - ```wc file```: Presents the data like -> Number of lines, number of words, number of bytes
+  - ```wc -l```: Show just number of lines
+  - ```wc -w```: Show just number of words
+  - ```wc -c```: Show just number of bytes
+  - ```wc -L```: Length of longest line in characters
+
+## Types of Commands
+
+  - ```bash```: Born again shell
+
+  - Executable programs
+    - They are inside ```/bin``` and ```usr/bin```.
+    - Example: ```cp``` command
+
+  - Shell builtin
+    - ```cd``` command
+    - In computing, a shell builtin is a command or a function, called from a shell, that is executed directly in the shell itself, instead of an external executable program which the shell would load and execute.
+
+      Shell builtins work significantly faster than external programs, because there is no program loading overhead. However, their code is inherently present in the shell, and thus modifying or updating them requires modifications to the shell. Therefore, shell builtins are usually used for simple, almost trivial, functions, such as text output.
+
+  - Shell scripts
+    - Custom programs written in shell script
+
+  - Alias
+    - ```ls``` command
+    - Create your own commands
+    - 	The alias command makes it possible to launch any command or group of commands (inclusive of any options, arguments and redirection) by entering a pre-set string (i.e., sequence of characters).
+
+  - Display information about command type:
+    - It displays if command is an alias, shell function, shell builtin, disk file, or shell reserved word.
+    - ```type ls```: ls is hashed (/bin/ls)
+    - ```type cd```: cd is a shell builtin
+    - ```type cp```: cp is /bin/cp
+      - ```file /bin/cp```: tells you that ```cp``` is an executable
+
+
+  - ```which``` will display the path of shell scripts and executables, it does not support shell builtins.
+    - ```which cp```: display executable location ```/bin/cp```
+
+
+  - For shell builtin help you can do ```help cd```
+
+  - For executable help you can do ```man cp```
+    - Also for executables, you can do ```whatis cp``` to get a short description about the program
+
+## Execute multiple commands
+
+  - ```date; cal```: semicolon
