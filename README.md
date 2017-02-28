@@ -340,6 +340,18 @@
   - For executable help you can do ```man cp```
     - Also for executables, you can do ```whatis cp``` to get a short description about the program
 
+
 ## Execute multiple commands
 
-  - ```date; cal```: semicolon
+  - ```date; cal```: Separate commands using a semicolon
+  - ```mkdir test && cd test1 && cd test```: Different from ```;``` the operand ```&&``` stops the execution if one of the commands fail (short circuit evaluation)
+
+
+## Wild cards
+
+  - ```*```: all occurrences
+    - ```cp *.txt dir```
+    - ```cp * dir```
+
+  - ```?```: represents a single character
+   - ```cp file?.txt dir```: copy all files file0.txt, file1.txt, etc. Any file that has a name structure like ```file``` + an unknown character + ```.txt```
