@@ -355,3 +355,40 @@
 
   - ```?```: represents a single character
    - ```cp file?.txt dir```: copy all files file0.txt, file1.txt, etc. Any file that has a name structure like ```file``` + an unknown character + ```.txt```
+
+  - ```[]```: range of characters
+    - ```cp [abc]*.txt dir```: Copy all the file that begins with the letters abc to ```dir```
+
+    - ```cp [!abc]*.txt dir```: Copy all the file that **does not** begins with the letters abc to ```dir```
+
+        - Exclamation mark negates the command
+
+    - ```cp [0-9]*.txt dir```: Copy all files starting from 0 to 9
+
+    - ```cp [[:upper:]]* dir```: Copy all the files that starts with an upper case letter
+
+    - ```cp [[:lower:]]* dir```: Copy all the files that starts with an lower case letter
+
+    - ```cp *[[:digit:]] dir```: Copy all the files that ends with a digit
+
+    - ```cp [[:alpha:]] dir```: Copy all the files that starts with a character from the alphabet
+
+    - ```cp [[:alnum:]] dir```: Copy all the files that starts with a character from the alphabet or a number. (alpha numeric)
+
+    - ```cp [[:alnum:]][0-9]* dir```: Copy all the files that starts with a character or a number (alpha numeric) and the second character must be a number from 0 to 9
+
+    - ```cat ???```: View all files with exactly 3 characters
+
+    - ```rm [[:digit]]*[abc]```: Remove all the files that begins with a number and ends with the letter (a,b or c)
+
+    - ```rm [[:digit]]*abc```: Remove all the files that begins with a number and ends with the letters abc all together  
+
+## Alias
+
+  - ```alias myname="cd Desktop;mkdir dir"```: Create an alias called myname that goes to the Desktop folder and creates a directory called dir
+
+  - ```unalias myname```: Delete an alias
+
+  - To retain an alias, save it inside ```~/.bashrc```
+
+  - ```alias```: List of all alias in the system
