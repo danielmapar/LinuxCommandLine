@@ -14,7 +14,7 @@
 
 ### Linux File System Tree:
 
-![Screenshot](./Linux%20File%20System.png)
+![Screenshot](./images/Linux%20File%20System.png)
 
 - **bin**: binary (commands and utilities that all users can run)
 - **sbin**: this directory contains programs that performs vital system tasks (network management, disk partitioning). Only the superuser has access to these programs.
@@ -29,7 +29,7 @@
     - /var/spool is traditionally used for machine-local data being spooled to or from UNIX subsystems. For example, print jobs are spooled here for delivery to the lineprinter daemon, out-bound mail is spooled for delivery to remote systems, and UUCP files are spooled for transmission to UUCP neighbors. In-bound mail and news are spooled here for delivery to users, and at and cron jobs are spooled for delayed execution by the cron daemon.
 
 
-![Screenshot](./Linux%20Relative%20and%20Absolute%20paths.png)
+![Screenshot](./images/Linux%20Relative%20and%20Absolute%20paths.png)
 
 
 ### Commands
@@ -64,7 +64,7 @@
 
 - **[DOES NOT WORK]** ```ls -```: should display you the content of your previous working directory
 
-![Screenshot](./LS%20-L%20OUTPUT.png)
+![Screenshot](./images/LS%20-L%20OUTPUT.png)
 
 ## Linux Links
 
@@ -92,7 +92,7 @@
 - In case the original file gets deleted, the soft link will no longer work
 - You can create soft links for directories
 
-![Screenshot](./Linux%20Soft%20Links.png)
+![Screenshot](./images/Linux%20Soft%20Links.png)
 
 ### Hard Link
 - Different name of the same file
@@ -104,7 +104,7 @@
 - In case I delete the original file, the hard link file will still work
 - **Be careful**: You should not create hard links for directories. Normally they are not even allowed because they break the file system structure.
 
-![Screenshot](./Linux%20Hard%20Links.png)
+![Screenshot](./images/Linux%20Hard%20Links.png)
 
 ### Commands
 
