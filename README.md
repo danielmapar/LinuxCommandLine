@@ -111,6 +111,8 @@
 - ```ls -i```: show inode id of files
 
 - ```ls -l```: show files information (size in bytes, permission, etc.)
+  * Folders should start with the letter `d` 
+  * ![ls-a-folders](./images/ls-a-folders.png)
 
 - ```ln```: link
 
@@ -162,7 +164,7 @@
   - ```touch newFile```: this will update the file timestamp and keep the content
 
 
-![Screenshot](Using%20Touch%20to%20Update%20Timestamp.png)
+![Screenshot](./images/Using%20Touch%20to%20Update%20Timestamp.png)
 
 ## MKDIR (Make directory) and RMDIR (Remove directory) Commands
 
@@ -352,6 +354,14 @@
   - ```*```: all occurrences
     - ```cp *.txt dir```
     - ```cp * dir```
+  
+  - `*.png` returns all the files that end with the extension .png
+
+  - `pea?.png` returns all files that start with "pea", is followed by any single character, and end with .png (for example, peas.png and pear.png)
+
+  - `*.{txt,pdf}` returns all files that end with either .txt or .pdf
+
+  - `log[12345].pdf` returns files log1.pdf, log2.pdf, log3.pdf, log4.pdf and log5.pdf
 
   - ```?```: represents a single character
    - ```cp file?.txt dir```: copy all files file0.txt, file1.txt, etc. Any file that has a name structure like ```file``` + an unknown character + ```.txt```
