@@ -479,3 +479,52 @@
 
 * `export $PATH=$PATH:/newpath`
   * the keyword `export` guarantees that if our current process spins child processes, it will also export this `env` var to the children processes.
+
+## Shell Scripting 
+
+* ![expr](./images/expr.png)
+  * Variables in `sh` are always strings. We use `expr` to evaluate numerical expressions.
+  * We escape `*` so it does not get confused by shell with a wildcard.
+    * `$((1 + 1))` also works for `bash` only
+
+* `$#` represents the number of parameters being supplied to the script.
+
+* \` backticks are used to execute an expression.
+  * ![backticks](./images/backticks.png) 
+
+* ![if-example](./images/if-example.png)
+  * Space inside the brackets are mandatory.
+* ![if-example2](./images/if-example2.png)
+
+* ![comparing-shell](./images/comparing-shell1.png)
+  * `==` is specific to `bash` (not present in sh (Bourne shell), ...). Using `POSIX` `=` is preferred for compatibility. In bash the two are equivalent, and in sh = is the only one that will work.
+
+* ![comparing-shell](./images/comparing-shell2.png)
+
+* ![comparing-shell](./images/comparing-shell3.png)
+
+* ![example-shell1](./images/example-shell1.png)
+  * `^` means it should start with string.
+
+* ![example-shell2](./images/example-shell2.png)
+
+* ![example-shell3](./images/example-shell3.png)
+
+* You can detache a process from the terminal by adding `&` at the end.
+  * `./my-script.sh &`
+
+### Scheduling Tasks
+
+* `crontab -l`
+  * To print the file content
+
+* `crontab -e`
+  * To edit the file
+
+* ![cron](./images/cron.png)
+  * A deamon reads the cron table and runs it.
+  * The name `cron` simply originates from Chronos, the personification of time in Greek mythology.
+
+* ![check_disk_space](./images/check_disk_space.png)
+
+* ![check_disk_space2](./images/check_disk_space2.png)
