@@ -402,3 +402,80 @@
   - To retain an alias, save it inside ```~/.bashrc```
 
   - ```alias```: List of all alias in the system
+
+## Streams and Pipes
+
+### Stream 
+
+* `>` operator 
+  * e.g. `grep "text" . > output.txt`
+  * Writing to a file (overwrite)
+  * e.g `head -n1 < /etc/passwd`
+    * Using operator as input to an app
+
+* `>>` operator 
+  * e.g. `grep "text" . >> output.txt`
+  * Append to a file 
+
+### Pipes
+
+* `ls | cowsay`
+  * pipe the results from `ls` to the program `cowsay`
+
+* `ls -l *.conf | wc -l | cowsay`
+
+## Manage processes 
+
+- `ps aux`
+  * `a` = `--all` Display information about other users' processes as well as your own.
+  * `u` = Display the processes belonging to the specified usernames.
+  * `x` = When displaying processes matched by other options, include processes which do not have a controlling terminal.
+
+- `top`
+
+- `htop`
+
+## Users, Groups and Permissions
+
+* `adduser danielmapar`
+  * Only root may add a user or group to the system.
+  * `sudo`: `super user do`
+    * `sudo -i`: login as `root`
+
+* `sudo adduser danielmapar`
+  * Executing command with root credentials 
+
+* `sudo login danielmapar`
+  * `cat /etc/passwd | grep "^danielmapar"`
+
+* ![permissions](./images/permissions.png)
+  * user = file owner
+  * group = the group of the file owner
+  * others = other users / groups
+  * The first char can be `-` (for file), `d` for directory of `l` for link.
+
+* `chmod +x file`
+  * You can change the `user` and `group` permission to include `x` (execute).
+
+* `chmod 755 file`
+  * each number represents a sequence of 3 bits. In the case of 7 it represents 111 (read, write and execute). Another example is 5 (read, dont write, execute).
+    * In this case, 7 changes the `user` permissions (`rwx`), the second and third numbers (5's) will change the `group` and `other` permissions respectively.
+
+  * Anothe way to achieve this (`755`) is by running: `chmod u=rwx,g=rw,o=rw file`
+
+## Environment Variables and RC Files
+
+* `echo $USER`
+* `echo $HOME`
+* `echo $0`
+  * my shell name
+* `echo $PATH`
+  * Path to find binaries
+  * `PATH=$PATH:newfolder`
+* `env`: list of env vars
+
+* `RC` stands for run commands.
+  * `.bashrc` = Bash Run Commands.
+
+* `export $PATH=$PATH:/newpath`
+  * the keyword `export` guarantees that if our current process spins child processes, it will also export this `env` var to the children processes.
